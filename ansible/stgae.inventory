@@ -1,2 +1,2 @@
 [appsrvgrp]
-app-server.donatellomenu.page
+172.31.17.226 ansible_user=ubuntu
