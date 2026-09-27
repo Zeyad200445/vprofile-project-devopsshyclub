@@ -50,14 +50,14 @@ pipeline {
             }
         }
 
-        stage("UploadArtifact"){
+       stage("UploadArtifact"){
             steps {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
                     nexusUrl: "${env.NEXUSIP}:${env.NEXUSPORT}",
                     groupId: 'QA',
-                    version: "${env.BUILD_ID}",
+                    version: "${env.BUILD_ID}-${env.BUILD_ID}", // ليطابق مجلد 11-11 الذي يطلبه أنسيبل
                     repository: "${env.RELEASE_REPO}",
                     credentialsId: "${env.NEXUS_LOGIN}",
                     artifacts: [
